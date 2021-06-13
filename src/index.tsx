@@ -6,11 +6,13 @@ import App from './App';
 import { store } from './app/store';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
+import { CssBaseline } from '@material-ui/core';
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
+        <CssBaseline />
         <App />
       </BrowserRouter>
     </Provider>
