@@ -6,6 +6,7 @@ import { selectCityList, selectCityMap } from 'features/city/citySlice';
 import { ListParams, Student } from 'models';
 import React, { useEffect } from 'react';
 import { Link, useHistory, useRouteMatch } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import StudentFilters from '../components/StudentFilters';
 import StudentTable from '../components/StudentTable';
 import {
@@ -77,6 +78,8 @@ export default function ListPage() {
     try {
       // Remove student API
       await studentApi.remove(student?.id || '');
+
+      toast.success('Remove student successfully!');
 
       // Trigger to re-fetch student list with current filter
       const newFilter = { ...filter };
